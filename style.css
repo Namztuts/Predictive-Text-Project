@@ -1,0 +1,54 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background: rgb(255, 220, 91);
+   background: linear-gradient(
+      90deg,
+      rgb(255, 238, 0) 0%,
+      rgb(255, 132, 10) 80%
+   );
+}
+
+.search-container {
+   height: 40px;
+   width: 300px;
+   background-color: rgba(255, 132, 10, 0.226);
+   border: none;
+   margin: 30vh auto;
+   max-width: 300px;
+}
+.input-container {
+   display: flex;
+   align-items: center;
+   padding: 10px 10px;
+}
+input {
+   flex-grow: 1;
+   height: 20px;
+   background-color: transparent;
+   border: 0;
+   outline: 0;
+}
+.suggestions ul {
+   background-color: rgba(255, 132, 10, 0.425);
+}
+.suggestions ul li {
+   list-style: none;
+   cursor: pointer;
+   padding: 10px 10px;
+}
+.suggestions ul li:hover {
+   background-color: rgb(255, 132, 10);
+   transition: 200ms;
+}
+
+.suggestions {
+   max-height: 300px;
+   overflow-y: auto;
+}
+
+/* want to color the scroll bar */
