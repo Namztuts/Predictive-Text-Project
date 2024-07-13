@@ -104,13 +104,10 @@ function searchHandler(result) {
       return fruit.replace(`${input}`, `<b>${input}</b>`);
    });
    // above; adding bold around input value NOTE: not working for capital letters and not sure how to fix it
-   // RegExp /`${input}/gi` (global and case INsensitive)
-   // YouTube example; Highlight Searched Text With Javascript @ 7:50
    const resultsHandler = searchResults.map((fruit) => {
       return `<li>${fruit}</li>`;
    });
    // above; adding li tags to each result
-   console.log(resultsHandler);
    return (suggestions.innerHTML = resultsHandler.join(''));
 }
 
@@ -122,8 +119,6 @@ function useSuggestion(e) {
    const suggestionFruit = e.target;
    fruitsInput.value = suggestionFruit.innerText;
    suggestions.innerHTML = '';
-   // NOTE: it works!
-   // TODO
 }
 
 fruitsInput.addEventListener('keyup', searchHandler);

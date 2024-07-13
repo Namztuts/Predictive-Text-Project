@@ -3,7 +3,6 @@
    padding: 0;
    box-sizing: border-box;
 }
-
 body {
    background: rgb(255, 220, 91);
    background: linear-gradient(
@@ -12,7 +11,6 @@ body {
       rgb(255, 132, 10) 80%
    );
 }
-
 .search-container {
    height: 40px;
    width: 300px;
@@ -50,5 +48,9 @@ input {
    max-height: 300px;
    overflow-y: auto;
 }
-
-/* want to color the scroll bar */
+::-webkit-scrollbar {
+   background-color: rgb(255, 132, 10);
+}
+::-webkit-scrollbar-thumb {
+   background-color: rgb(255, 143, 32);
+}
