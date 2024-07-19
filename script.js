@@ -82,12 +82,12 @@ const fruits = [
 const fruitsInput = document.querySelector('#fruits-input');
 const suggestions = document.querySelector('.suggestions ul');
 
-function search() {
+function search(searchTerm) {
    let results = [];
-   let input = fruitsInput.value;
-   if (input.length) {
+   // let input = fruitsInput.value;
+   if (searchTerm.length) {
       results = fruits.filter((fruit) => {
-         return fruit.toLowerCase().includes(input.toLowerCase());
+         return fruit.toLowerCase().includes(searchTerm.toLowerCase());
       });
       return results;
    } else {
@@ -96,23 +96,24 @@ function search() {
    }
 }
 
-function searchHandler(result) {
-   result = search();
-   let searchResults = [];
+function searchHandler() {
    let input = fruitsInput.value;
-   searchResults = result.map((fruit) => {
+   const results = search(input);
+   let searchResults = [];
+   searchResults = results.map((fruit) => {
       return fruit.replace(`${input}`, `<b>${input}</b>`);
    });
+   showSuggestions(searchResults, input);
    // above; adding bold around input value NOTE: not working for capital letters and not sure how to fix it
-   const resultsHandler = searchResults.map((fruit) => {
+   // feel like i've gotten close; for each index, return the [0] index but capital if it is the first letter of the fruit
+}
+
+function showSuggestions(results, inputVal) {
+   const resultsHandler = results.map((fruit) => {
       return `<li>${fruit}</li>`;
    });
    // above; adding li tags to each result
    return (suggestions.innerHTML = resultsHandler.join(''));
-}
-
-function showSuggestions(results, inputVal) {
-   // TODO - ????????
 }
 
 function useSuggestion(e) {
